@@ -8,7 +8,7 @@ module objects {
         public halfHeight:number;
 
         // constructors
-        constructor(text:string, fontSize:string, fontFamily:string, fontColour:string, x:number, y:number, isCentered:boolean) {
+        constructor(text:string, fontSize:string, fontFamily:string, fontColour:string, x:number = 0, y:number = 0, isCentered:boolean = false) {
             super(text, fontSize + " " + fontFamily, fontColour);
 
             this.isCentered = isCentered;
