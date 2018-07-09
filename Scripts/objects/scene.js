@@ -27,6 +27,8 @@ var objects;
         };
         Scene.prototype.Destroy = function () {
         };
+        Scene.prototype.Main = function () {
+        };
         return Scene;
     }(createjs.Container));
     objects.Scene = Scene;

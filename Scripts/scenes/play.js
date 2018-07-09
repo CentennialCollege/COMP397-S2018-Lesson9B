@@ -10,37 +10,37 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var scenes;
 (function (scenes) {
-    var Start = /** @class */ (function (_super) {
-        __extends(Start, _super);
+    var Play = /** @class */ (function (_super) {
+        __extends(Play, _super);
         // constructors
-        function Start() {
+        function Play() {
             var _this = _super.call(this) || this;
             _this.Start();
             return _this;
         }
         // private methods
         // public methods
-        Start.prototype.Start = function () {
-            this._welcomeLabel = new objects.Label("Welcome!", "60px", "Consolas", "#000000", 320, 240, true);
-            this._startButton = new objects.Button("StartButton", 320, 360, true);
+        Play.prototype.Start = function () {
+            this._playLabel = new objects.Label("Play!", "60px", "Consolas", "#000000", 320, 240, true);
+            this._nextButton = new objects.Button("NextButton", 320, 360, true);
             this.Main();
         };
-        Start.prototype.Update = function () {
+        Play.prototype.Update = function () {
         };
-        Start.prototype.Reset = function () {
+        Play.prototype.Reset = function () {
         };
-        Start.prototype.Destroy = function () {
+        Play.prototype.Destroy = function () {
             this.removeAllChildren();
         };
-        Start.prototype.Main = function () {
-            this.addChild(this._welcomeLabel);
-            this.addChild(this._startButton);
-            this._startButton.on("click", function () {
-                managers.Game.CurrentState = config.Scene.PLAY;
+        Play.prototype.Main = function () {
+            this.addChild(this._playLabel);
+            this.addChild(this._nextButton);
+            this._nextButton.on("click", function () {
+                managers.Game.CurrentState = config.Scene.END;
             }, this);
         };
-        return Start;
+        return Play;
     }(objects.Scene));
-    scenes.Start = Start;
+    scenes.Play = Play;
 })(scenes || (scenes = {}));
-//# sourceMappingURL=start.js.map
+//# sourceMappingURL=play.js.map

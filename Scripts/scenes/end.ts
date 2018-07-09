@@ -1,8 +1,8 @@
 module scenes {
-    export class Start extends objects.Scene {
+    export class End extends objects.Scene {
         // member variables
-        private _welcomeLabel: objects.Label;
-        private _startButton: objects.Button;
+        private _endLabel: objects.Label;
+        private _backButton: objects.Button;
 
         // constructors
         constructor() {
@@ -16,8 +16,8 @@ module scenes {
         // public methods
         public Start():void {
 
-            this._welcomeLabel = new objects.Label("Welcome!", "60px", "Consolas", "#000000", 320, 240, true);
-            this._startButton = new objects.Button("StartButton", 320, 360, true);
+            this._endLabel = new objects.Label("Game Over!", "60px", "Consolas", "#000000", 320, 240, true);
+            this._backButton = new objects.Button("BackButton", 320, 360, true);
 
             this.Main();
         }
@@ -35,10 +35,10 @@ module scenes {
         }
 
         public Main():void {
-            this.addChild(this._welcomeLabel);
-            this.addChild(this._startButton);
+            this.addChild(this._endLabel);
+            this.addChild(this._backButton);
 
-            this._startButton.on("click", function(){
+            this._backButton.on("click", function(){
                 managers.Game.CurrentState = config.Scene.PLAY;
             }, this);
         }

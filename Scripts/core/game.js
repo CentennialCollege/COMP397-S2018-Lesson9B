@@ -42,16 +42,22 @@
     }
     function Main() {
         console.log("%c Main Game Started...", "font-style:italic; font-size:16px; color:blue;");
+        if (CurrentScene) {
+            CurrentScene.Destroy();
+            stage.removeChild(CurrentScene);
+        }
         switch (CurrentState) {
             case config.Scene.START:
                 CurrentScene = new scenes.Start();
-                managers.Game.CurrentScene = CurrentScene;
                 break;
             case config.Scene.PLAY:
+                CurrentScene = new scenes.Play();
                 break;
             case config.Scene.END:
+                CurrentScene = new scenes.End();
                 break;
         }
+        managers.Game.CurrentScene = CurrentScene;
         stage.addChild(CurrentScene);
     }
     window.addEventListener("load", Init);

@@ -10,37 +10,37 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var scenes;
 (function (scenes) {
-    var Start = /** @class */ (function (_super) {
-        __extends(Start, _super);
+    var End = /** @class */ (function (_super) {
+        __extends(End, _super);
         // constructors
-        function Start() {
+        function End() {
             var _this = _super.call(this) || this;
             _this.Start();
             return _this;
         }
         // private methods
         // public methods
-        Start.prototype.Start = function () {
-            this._welcomeLabel = new objects.Label("Welcome!", "60px", "Consolas", "#000000", 320, 240, true);
-            this._startButton = new objects.Button("StartButton", 320, 360, true);
+        End.prototype.Start = function () {
+            this._endLabel = new objects.Label("Game Over!", "60px", "Consolas", "#000000", 320, 240, true);
+            this._backButton = new objects.Button("BackButton", 320, 360, true);
             this.Main();
         };
-        Start.prototype.Update = function () {
+        End.prototype.Update = function () {
         };
-        Start.prototype.Reset = function () {
+        End.prototype.Reset = function () {
         };
-        Start.prototype.Destroy = function () {
+        End.prototype.Destroy = function () {
             this.removeAllChildren();
         };
-        Start.prototype.Main = function () {
-            this.addChild(this._welcomeLabel);
-            this.addChild(this._startButton);
-            this._startButton.on("click", function () {
+        End.prototype.Main = function () {
+            this.addChild(this._endLabel);
+            this.addChild(this._backButton);
+            this._backButton.on("click", function () {
                 managers.Game.CurrentState = config.Scene.PLAY;
             }, this);
         };
-        return Start;
+        return End;
     }(objects.Scene));
-    scenes.Start = Start;
+    scenes.End = End;
 })(scenes || (scenes = {}));
-//# sourceMappingURL=start.js.map
+//# sourceMappingURL=end.js.map

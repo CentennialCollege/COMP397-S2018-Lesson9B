@@ -26,5 +26,9 @@ module objects {
 
         }
 
+        public Main():void {
+            
+        }
+
     }
 }
