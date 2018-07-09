@@ -37,7 +37,6 @@
     }
 
     function Update():void {
-        //helloLabel.rotation += 5;
 
         stage.update();
     }
