@@ -6,9 +6,26 @@
     let stage:createjs.Stage;
     let helloLabel:objects.Label;
     let startButton: objects.Button;
+    let AssetManager: createjs.LoadQueue;
+
+    let Manifest = [
+        {id: "StartButton", src:"/Assets/images/StartButton.png"},
+        {id: "NextButton", src:"/Assets/images/NextButton.png"},
+        {id: "BackButton", src:"/Assets/images/BackButton.png"}
+    ]
+
+
+    function Init():void {
+        console.log(`%c Assets Loading...`,"font-weight:bold; font-size:20px; color: green;");
+        AssetManager = new createjs.LoadQueue();
+        managers.Game.AssetManager = AssetManager; // set as single instance of the LoadQueue object
+        AssetManager.installPlugin(createjs.Sound); // enables sound file preloading
+        AssetManager.on("complete", Start);
+        AssetManager.loadManifest(Manifest);
+    }
 
     function Start():void {
-        console.log(`%c Start Function`,"font-weight:bold; font-size:20px; color: red;");
+        console.log(`%c Game Initializing...`,"font-weight:bold; font-size:20px; color: red;");
         canvas = document.getElementsByTagName("canvas")[0];
         stage = new createjs.Stage(canvas);
         stage.enableMouseOver(20); // enables mouse over events
@@ -26,16 +43,20 @@
     }
 
     function Main():void {
-        console.log(`%c Main Function`,"font-style:italic; font-size:16px; color:blue;");
+        console.log(`%c Main Game Started...`,"font-style:italic; font-size:16px; color:blue;");
 
         // this is the Label
         helloLabel = new objects.Label("Hello, World!", "60px", "Consolas", "#000000", 320, 240, true);
         stage.addChild(helloLabel);
 
-        startButton = new objects.Button("/Assets/images/StartButton.png", 320, 360, true);
+        startButton = new objects.Button("StartButton", 320, 360, true);
         stage.addChild(startButton);
+
+        startButton.on("click", function() {
+            helloLabel.text = "Clicked!";
+        });
     }
 
-    window.addEventListener("load", Start);
+    window.addEventListener("load", Init);
 
 })();

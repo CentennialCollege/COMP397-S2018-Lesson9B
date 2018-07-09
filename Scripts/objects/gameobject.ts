@@ -8,7 +8,7 @@ module objects {
 
         // constructors
         constructor(imagePath) {
-            super(imagePath);
+            super(managers.Game.AssetManager.getResult(imagePath));
 
             this._initialize();
 
@@ -17,7 +17,7 @@ module objects {
 
         // private methods
 
-        
+
         private _initialize():void {
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;

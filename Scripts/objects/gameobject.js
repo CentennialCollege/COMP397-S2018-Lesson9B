@@ -14,7 +14,7 @@ var objects;
         __extends(GameObject, _super);
         // constructors
         function GameObject(imagePath) {
-            var _this = _super.call(this, imagePath) || this;
+            var _this = _super.call(this, managers.Game.AssetManager.getResult(imagePath)) || this;
             _this._initialize();
             return _this;
         }
